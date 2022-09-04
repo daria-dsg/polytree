@@ -1,6 +1,8 @@
 
 require "byebug"
 
+
+
 class PolyTreeNode
 
     attr_reader :value, :children, :parent
@@ -32,6 +34,31 @@ class PolyTreeNode
         child_node.parent = nil
     end
 
+    def dfs(target_value)
+         return self if self.value == target_value
+         
+         self.children.each do |child| 
+            result = child.dfs(target_value)
+            return result unless result.nil?
+         end
+
+         nil
+    end
+
+    def bfs(target = nil, &prc )
+        raise "Need a proc or target" if [target, prc].none?
+        prc ||= Proc.new { |node| node.value == target }
+
+        queue = [self]
+        
+        until queue.empty?
+            node = queue.shift
+            return node if prc.call(node)
+            queue.concat(node.children)
+        end
+
+        nil
+    end
 
     def inspect
         {parent: parent,
