@@ -21,8 +21,11 @@ class Simon
   def take_turn
     show_sequence
     require_sequence
-    round_success_message
-    @sequence_length += 1
+
+    unless game_over
+      round_success_message
+      @sequence_length += 1
+    end
   end
 
   def show_sequence
@@ -30,20 +33,21 @@ class Simon
     
     seq.each do |color| 
       puts color
-      sleep 0.5
+      sleep 1
       system("clear")
     end
   end
 
   def require_sequence
     seq.each do |color|
-       puts "Enter the color of sequence: "
-       guessed = gets.chomp 
+      puts "Enter the name of color: "
+      guessed = gets.chomp
+      system("clear")
 
-       unless guessed == color 
-          @game_over = true 
-          break
-       end
+      unless guessed == color
+        @game_over = true
+        break
+      end
     end
   end
 
