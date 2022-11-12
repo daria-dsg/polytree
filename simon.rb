@@ -30,13 +30,21 @@ class Simon
     
     seq.each do |color| 
       puts color
-      sleep 0.
+      sleep 0.5
       system("clear")
     end
   end
 
   def require_sequence
-    
+    seq.each do |color|
+       puts "Enter the color of sequence: "
+       guessed = gets.chomp 
+
+       unless guessed == color 
+          @game_over = true 
+          break
+       end
+    end
   end
 
   def add_random_color
@@ -44,7 +52,7 @@ class Simon
   end
 
   def round_success_message
-
+   
   end
 
   def game_over_message
