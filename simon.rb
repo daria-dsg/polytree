@@ -32,9 +32,11 @@ class Simon
     add_random_color
     
     seq.each do |color| 
-      puts color
-      sleep 1
       system("clear")
+      puts color
+      sleep 0.75
+      system("clear")
+      sleep 0.25
     end
   end
 
