@@ -52,7 +52,7 @@ class Simon
   end
 
   def round_success_message
-   
+    "You enter the correct sequence"
   end
 
   def game_over_message
