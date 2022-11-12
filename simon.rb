@@ -52,11 +52,13 @@ class Simon
   end
 
   def round_success_message
-    "You enter the correct sequence"
+    puts "You enter the correct sequence"
   end
 
   def game_over_message
-    
+    puts "It is not correct sequence"
+    sleep 0.5
+    puts "Game is over"
   end
 
   def reset_game
