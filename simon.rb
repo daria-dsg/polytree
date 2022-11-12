@@ -60,9 +60,7 @@ class Simon
   end
 
   def game_over_message
-    puts "It is not correct sequence"
-    sleep 0.5
-    puts "Game is over"
+    puts "Game is over. It is not correct sequence"
   end
 
   def reset_game
